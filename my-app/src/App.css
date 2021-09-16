@@ -2,18 +2,26 @@ a {
     text-decoration: none;
 }
 
-/* body{
-    border: 1px solid;
-} */
+ul {
+    list-style: none;
+}
+
+h1 {
+    margin: 0;
+}
 
 .header {
     width: 100%;
-    background-color: tomato;
+    background-color: white;
+    border-bottom: 1px solid #ebebeb;
+    position: fixed;
+    z-index: 1;
+   
 }
 
 .nav {
     width: 85%;
-    background-color: gray;
+    height: 38px;
     display: flex;
     justify-content: space-between;
     padding: 12px 6px;
@@ -22,7 +30,7 @@ a {
 
 .mnav {
     width: 100%;
-    background-color: gray;
+    background-color: white;
     display: flex;
     justify-content: space-between;
     padding: 12px 0;
@@ -33,10 +41,10 @@ a {
     display: block;
     width: 100px;
     height: 17px;
-    position: absolute;
+    position: relative;
     color: black;
     text-decoration: none;
-    top: 18px;
+    top: 12px;
     background: url(./logo.svg) no-repeat;
 }
 
@@ -58,18 +66,178 @@ a {
 
 .menunav li {
     display: inline-block;
-    padding: 6px;
+    padding: 10px 30px;
    
 }
 
 .menunav li a {
+    font-size: 15px;
     font-weight: 500;
     color: #333;  
 }
 
+/* --------------- navtop --------------- */
 
+.navtop {
+    width: 85%;
+    margin: 0 auto;
+    border-bottom: 1px solid #ebebeb;
+}
+
+.navtop ul {
+    display: flex;
+    padding: 0;
+    justify-content: flex-end;
+}
+
+.navtop ul li {
+    padding: 0 6px;
+}
+
+.navtop a {
+    color: rgba(34,34,34,.8);
+}
+
+/* ----------------------------------- */
 .sec1 {
     width: 100%;
-    height: 100%;
-    background-color: tomato;
+    height: 100vh;
+    background-color: sandybrown;
 }
+
+.sec2 {
+    width: 100%;
+    height: 100vh;
+    background-color: skyblue;
+}
+
+.sec3 {
+    width: 100%;
+    height: 100vh;
+    background-color: violet;
+}
+
+.sec4 {
+    width: 100%;
+    height: 100vh;
+    background-color: forestgreen;
+}
+
+.sech1 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    text-align: center;
+    margin-left: -58px;
+    margin-top: -14px;
+}
+
+/* ----------------- footer --------------------- */
+
+.footer {
+    width: 85%;
+    margin: 0 auto;
+    padding: 50px 40px;
+    border-top: 1px solid #ebebeb;
+}
+
+.footer h3 {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.footerinner {
+    position: relative;
+}
+
+.service_area {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    
+}
+
+.footerbox {
+    width: 160px;
+    margin-left: 50px;
+}
+
+
+
+.footer ul {
+    list-style: none;
+    text-align: left;
+    padding: 0;
+   
+}
+
+.footer ul a {
+    color: rgba(34,34,34,.5);
+    text-decoration: none;
+}
+
+.footer li {
+    padding: 10px 0;
+}
+
+.footeraddr {
+    margin-left: auto;
+}
+
+.footeraddr a {
+    color: black;
+}
+
+.footeraddr p {
+    color: rgba(34,34,34,.5);
+}
+
+.footeraddr span {
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.footeraddr button {
+    margin-top: 20px;
+    height: 35px;
+    padding: 10px;
+    display: block;
+    border-style: none ;
+    background-color: #222;
+    border-radius: 5px;
+}
+
+.footeraddr button a {
+    color: white;
+}
+
+.corporation_area {
+    position: relative;
+    margin-top: 30px;
+    border-top: 1px solid #ebebeb;
+}
+.corporation_area ul {
+    display: inline-flex;
+    margin-left: 50px;
+}
+
+.corporation_area ul li {
+    padding: 0 20px 0 0;
+}
+
+.corporation_area ul li a {
+    color: #333;
+   
+}
+
+.copyright p {
+    max-width: 605px;
+    margin-left: 50px;
+    font-size: 12px;
+    letter-spacing: -.06px;
+    color: rgba(34,34,34,.3);
+}
+
+
+
+

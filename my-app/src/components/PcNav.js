@@ -1,11 +1,6 @@
 import React from "react";
-import Style from "./Style";
 import {
-    BrowserRouter as Router,
-    Switch,
-    Route,
-    Link, 
-    NavLink 
+    Link
   } from "react-router-dom";
   
 
@@ -16,30 +11,26 @@ const PcNav = () => {
   
    
     return (
-        <Router>
             <div className="header">
-                <Switch>
-                    <div className="nav">
-                        <Route path="/">
-                            <div> 
-                                <a href="/" className="mainlogo"><img src="" alt=""/></a>
-                            </div>
-                        </Route>
-                        <ul className="menunav">
-                            <Route path="">  
-                              <li><a href="/">STYLE</a></li>
-                            </Route>  
-                            <Route path="">
-                             <li><a href="/">SHOP</a></li>
-                            </Route>   
-                            <Route path="">
-                             <li><a href="/">돋보기</a></li>
-                            </Route>   
+                    <div className="navtop">
+                        <ul>
+                            <li><a href="/">고객센터</a></li>
+                            <li><a href="/">관심상품</a></li>
+                            <li><a href="/">마이페이지</a></li>
+                            <li><a href="/">로그인</a></li>
                         </ul>
                     </div>
-                </Switch>
+                    <div className="nav">
+                            <div> 
+                                <Link to="/" className="mainlogo"><img src="" alt=""/></Link>
+                            </div>
+                        <ul className="menunav">                         
+                             <li><Link to="/style">STYLE</Link></li>                 
+                             <li><Link to="shop">SHOP</Link></li>
+                             <li><Link to="/search">돋보기</Link></li>   
+                        </ul>
+                    </div>
             </div>
-        </Router>
     );
 };
 
