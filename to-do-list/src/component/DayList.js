@@ -16,6 +16,11 @@ export default function DayList(){
     //  });
     // },[]);
 
+
+    if(days.length === 0) {
+        return <span>loading...</span>
+    }
+
     return (
         <>
             <ul className="list_day">

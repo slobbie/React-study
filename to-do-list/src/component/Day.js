@@ -1,34 +1,43 @@
-import { useParams } from 'react-router-dom';
+import { useState } from 'react';
+import { useHistory, useParams } from 'react-router-dom';
 import useFetch from '../hooks/useFetch';
 import Word from "./Word"
 
 export default function Day(){
     // const a = useParams();
     // const day = a.day;
+
     const { day } = useParams();
 
-    // const wordList = dummy.words.filter(word =>(
-    //     word.day === Number(day)
-    // ));
-
-
+   
     const words = useFetch(`http://localhost:3001/words?day=${day}`);
 
-    // const [words, setWords] = useState([]);
+    const history = useHistory();
 
-    // useEffect(()=>{
-    //     fetch(`http://localhost:3001/words?day=${day}`)
-    //     .then(res =>{
-    //         return res.json()
-    //     })
-    //     .then(data =>{
-    //         setWords(data);
-    //     });
-    //    },[day]);
+    function handleClick(){
+        if(day > 1){     
+                history.push(`/day/${day-1}`);    
+        }
+    }
+    function handleClick2(){
+        history.push(`/day/${day}`);
+    }
 
+
+   
     return (
         <>
-            <h2>Day {day}</h2>
+            <h2>Day {day}
+            <button className="page_btn"
+            onClick={handleClick}>
+                prevDay
+            </button>
+            <button className="page_btn"
+            onClick={handleClick2}>
+                nextDay
+            </button>
+            </h2>
+            {words.length === 0 && <span>Loading...</span>}
             <table>
                 <tbody>
                     {words.map(word =>( 

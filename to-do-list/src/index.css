@@ -130,3 +130,9 @@ button {
   height: 40px;
   font-size: 20px;
 }
+
+.page_btn {
+  margin-left: 15px;
+  padding: 7px 7px;
+  font-size: 15px;
+}
