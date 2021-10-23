@@ -13,5 +13,5 @@ export default function Header(){
                 Day추가
             </Link>
         </div>
-    </div>;
+    </div>
 }

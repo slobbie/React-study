@@ -1,13 +1,11 @@
-import { useState } from 'react';
 import { useHistory, useParams } from 'react-router-dom';
 import useFetch from '../hooks/useFetch';
 import Word from "./Word"
 
 export default function Day(){
-    // const a = useParams();
-    // const day = a.day;
 
     const { day } = useParams();
+    const petchday = Number (day);
 
    
     const words = useFetch(`http://localhost:3001/words?day=${day}`);
@@ -16,14 +14,45 @@ export default function Day(){
 
     function handleClick(){
         if(day > 1){     
-                history.push(`/day/${day-1}`);    
+                history.push(`/day/${day - 1}`);    
         }
     }
-    function handleClick2(){
-        history.push(`/day/${day}`);
+
+
+
+    function nextDay(){     
+        return history.push(`/day/${parseInt(day) + 1}`);  
+        // if(day === '' || day === null || day === undefined){   
+        //     return history.push(`/day/${parseInt(day) + 1}`);  
+        // } else if(petchday !== undefined){
+        //     alert('더이상 단어장이 없습니다.')           
+        //     return history.replace("/create_day");            
+        // }    
     }
 
 
+    const goBack = () => {
+       history.goBack();
+    }
+
+
+   
+   
+
+
+    // 데이 자체를 넘버라고 명시를 해버리고  조건문으로 서버에 더이상 데이가 없으면 단어장이 없다는 무언가 알림을 주기
+    // const nextDay = () => {     
+    //     if (day === '' || day === null || day === undefined){
+    //         history.push(`/day/${parseInt(day) + 1}`);   
+    //     }else if(day !== '' || day !== null || day !== undefined) { 
+    //             if(!window.confirm('더이상 단어장이 없습니다.')){
+    //                 return
+    //             }else{
+    //                 return history.replace("/create_day");
+    //             }           
+    //     }        
+    // } 
+    
    
     return (
         <>
@@ -33,7 +62,7 @@ export default function Day(){
                 prevDay
             </button>
             <button className="page_btn"
-            onClick={handleClick2}>
+            onClick={() => nextDay()}>
                 nextDay
             </button>
             </h2>
@@ -45,6 +74,7 @@ export default function Day(){
                     ))}
                 </tbody>
             </table>
+            <button type="button" className="goBack" onClick={goBack}>뒤로가기</button>
         </>
     );
-}
+} 
