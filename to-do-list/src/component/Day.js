@@ -27,13 +27,25 @@ export default function Day(){
         // } else if(petchday !== undefined){
         //     alert('더이상 단어장이 없습니다.')           
         //     return history.replace("/create_day");            
-        // }    
+        // }else{
+            
+        // }  
     }
 
 
     const goBack = () => {
        history.goBack();
     }
+
+
+    // function nextDay(){      
+    //     if(petchday !== undefined){
+    //         alert('더이상 단어장이 없습니다 단어장으로 이동하실?.')           
+    //         return history.replace("/create_day");            
+    //     }else{
+    //         return history.push(`/day/${parseInt(day) + 1}`);  
+    //     }  
+    // }
 
 
    
@@ -45,13 +57,15 @@ export default function Day(){
     //     if (day === '' || day === null || day === undefined){
     //         history.push(`/day/${parseInt(day) + 1}`);   
     //     }else if(day !== '' || day !== null || day !== undefined) { 
-    //             if(!window.confirm('더이상 단어장이 없습니다.')){
+    //             if(!window.confirm('더이상 단어장이 없습니다.새로운 단어장을 추가할까요?')){
     //                 return
     //             }else{
     //                 return history.replace("/create_day");
     //             }           
     //     }        
     // } 
+
+   
     
    
     return (

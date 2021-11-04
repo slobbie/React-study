@@ -3,6 +3,7 @@ import PcNav from "./components/PcNav";
 import MobileNav from "./components/MobileNav";
 import { Mobile, PC } from "./MediaQuery";
 import "./App.css";
+import { useState } from "react";
 
 import {
   BrowserRouter as Router,
@@ -18,7 +19,12 @@ import Footer from "./components/Footer"
 
 
 
+
+
 function App() {
+
+  
+
        
   return ( 
   <> 
@@ -41,7 +47,8 @@ function App() {
         </Route>
         <Route path="/search">
           <Search />
-        </Route>  
+        </Route>
+        {/* <Route path="/profile" component={Profile} /> */}
       </Switch>
     </Router>
 
