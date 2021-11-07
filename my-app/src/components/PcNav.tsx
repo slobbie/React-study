@@ -17,7 +17,7 @@ const PcNav = () => {
                             <li><a href="/">고객센터</a></li>
                             <li><a href="/">관심상품</a></li>
                             <li><Link to="/profile">마이페이지</Link></li>
-                            <li><a href="/">로그인</a></li>
+                            <li><Link to="/login">로그인</Link></li>
                         </ul>
                     </div>
                     <div className="nav">

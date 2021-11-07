@@ -5,6 +5,8 @@ import { Mobile, PC } from "./MediaQuery";
 import "./App.css";
 import { useState } from "react";
 
+import styled from 'styled-components';
+
 import {
   BrowserRouter as Router,
   Switch,
@@ -15,7 +17,8 @@ import Mainpage from "./components/Mainpage";
 import Style from "./components/Style";
 import Shop from "./components/Shop";
 import Search from "./components/Search";
-import Footer from "./components/Footer"
+import Footer from "./components/Footer";
+import Login from "./components/Login";
 
 
 
@@ -48,11 +51,12 @@ function App() {
         <Route path="/search">
           <Search />
         </Route>
-        {/* <Route path="/profile" component={Profile} /> */}
+        <Route path="/login">
+          <Login />
+        </Route>
       </Switch>
     </Router>
-
-    <Footer />
+  <Footer />
   </>
    );
 };
