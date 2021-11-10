@@ -35,7 +35,6 @@ const Input = styled.input`
 
 const InputBox = styled.div`
    margin-top: 108px;
-   border: 1px solid black;
    h3 {
        margin: 0;
        margin: 10px 0;
@@ -59,7 +58,7 @@ const Button = styled.button`
    font-size: 20px;
    border: 1px #f0f0f0;
    border-radius: 10px;
-   box-shadow: 3px 9px 33px rgb(163 177 198 / 43%), -8px -9px 16px rgb(255 255 255 / 19%);
+   box-shadow: 3px 9px 13px rgb(163 177 198 / 43%), -8px -9px 5px rgb(255 255 255 / 19%);
 
 `;
 
@@ -93,7 +92,7 @@ const Login = () => {
                     <h3>아이디</h3>
                     <Input id="id" name="id" placeholder="예) fromby@gamil.com" />
                     <h3>비밀번호</h3>
-                    <Input />
+                    <Input id="password" name="password" placeholder="예) 비밀번호를 입력해주세요." />
                 </InputBox>
                 <ButtonBox>
                     <Button>로그인</Button>
@@ -102,9 +101,9 @@ const Login = () => {
                     <Button>구글 로그인</Button>
                 </ButtonBox>
                 <Ul>
-                    <Li>회원 가입</Li>
-                    <Li>이메일 찾기</Li>
-                    <Li>비밀번호 찾기</Li>
+                    <Li><a>회원 가입</a></Li>
+                    <Li><a>이메일 찾기</a></Li>
+                    <Li><a>비밀번호 찾기</a></Li>
                 </Ul>
                
             </Container>
