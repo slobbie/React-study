@@ -1,5 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
 import styled from "styled-components";
+import { FetchLogin } from "./FetchLogin";
+
+
 
 
 const Container = styled.div`
@@ -52,10 +56,12 @@ const ButtonBox = styled.div`
 const Button = styled.button`
    width: 100%;
    height: 70px;
+   display: block;
    margin-bottom: 10px;
    background-color: #fff;
    font-weight: bold;
-   font-size: 20px;
+   font-size: 20px;  
+   cursor: pointer;
    border: 1px #f0f0f0;
    border-radius: 10px;
    box-shadow: 3px 9px 13px rgb(163 177 198 / 43%), -8px -9px 5px rgb(255 255 255 / 19%);
@@ -84,18 +90,47 @@ const Li = styled.li`
 
 
 const Login = () => {
+   const [user, setUser] = useState(null);
+     const history = useHistory();
+     const [account, setAccount] = useState({
+         id:"",
+         password:"",
+     });
+     const onChangeAccount = (e:any) => {
+        console.log(account)
+       setAccount({
+           ...account,
+           [e.target.name]: e.target.value,
+       });
+     };
+
+     const onSubmitAccount = async () => {
+         try{
+             const user = await FetchLogin(account);
+             setUser(user);
+             history.replace("/");
+         } catch (error) {
+             window.alert(error);
+         }
+     };
+
+     
     return(
         <div className="LoginPage">
             <Container>
                 <h2>FromBy</h2>
                 <InputBox>
                     <h3>아이디</h3>
-                    <Input id="id" name="id" placeholder="예) fromby@gamil.com" />
+                    <Input id="id" name="id" placeholder="예) fromby@gamil.com" 
+                     onChange={onChangeAccount}
+                    />
                     <h3>비밀번호</h3>
-                    <Input id="password" name="password" placeholder="예) 비밀번호를 입력해주세요." />
+                    <Input id="password" name="password" placeholder="예) 비밀번호를 입력해주세요."
+                     onChange={onChangeAccount}
+                    />
                 </InputBox>
                 <ButtonBox>
-                    <Button>로그인</Button>
+                    <Button onClick={onSubmitAccount}>로그인</Button>
                     <Button>네이버 로그인</Button>
                     <Button>카카오 로그인</Button>
                     <Button>구글 로그인</Button>

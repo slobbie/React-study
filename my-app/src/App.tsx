@@ -51,7 +51,7 @@ function App() {
         <Route path="/search">
           <Search />
         </Route>
-        <Route path="/login">
+        <Route path="/login" component={Login}>
           <Login />
         </Route>
       </Switch>
