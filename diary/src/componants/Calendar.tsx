@@ -1,12 +1,14 @@
 import styled from "styled-components";
 import moment, { Moment as MomentTypes } from 'moment';
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 
 let Container = styled.div`
   margin: 0 auto;
+  top: 40px;
   width: 60%;
-  height: 700px;
+  height: 600px;
   position: relative;
   background-color: #fff;
   box-shadow: 3px 5px 13px rgb(163 177 198 / 43%), -8px -9px 5px rgb(255 255 255 / 19%);
@@ -30,6 +32,17 @@ let Header = styled.div`
     }
  
 `
+let WeekHandeler = styled.div` 
+     display: flex;
+     justify-content: space-around;
+     button {
+       color: wheat;
+       border: none;
+       border-radius: 30px;
+       background-color: tomato;
+       
+     }
+`
 
 let Top = styled.div`
  padding-top: 50px;
@@ -37,17 +50,22 @@ let Top = styled.div`
  justify-content: space-around;
 `
 
+let Body = styled.div` 
+  margin-top: 20px;  
+`
+
 const Calendar = () => {
-    const [data, setdata] = useState<moment.Moment>(() => moment());
+    const [date, setdate] = useState<moment.Moment>(() => moment());
+
+
+    const handleDayClick = (current: moment.Moment) => setdate(current);
+    const returnToday = () => setdate(moment());
+    const jumpToMonth = (num: number) => (num ? setdate(date.clone().add(30, 'day')) : setdate(date.clone().subtract(30, 'day')));
+
     function generate() {
         // 님 날짜 뭐 눌렀어요? (초기값은 오늘)
-        const today = data;
+        const today = date;
 
-        const handleDayClick = (current: moment.Moment) => setdata(current);
-        const returnToday = () => setdata(moment());
-        const jumpToMonth = (num: number) => (num ? setdata(data.clone().add(30, 'day')) : setdata(data.clone().subtract(30, 'day')));
-
-    
         // startOf('month') : 이번 달의 첫번 째 날로 설정 set to the first of this month, 12:00 am
         // week() : Week of Year. 이번 년도의 몇번째 주인가? => 3월 8일이면 10이겠죠?
         const startWeek = today.clone().startOf('month').week();
@@ -63,7 +81,7 @@ const Calendar = () => {
         // 이제 주마다 일을 표기해야 하므로 len이 7인 arr를 생성 후 index를 기반으로 day를 표기하자
         for (let week = startWeek; week <= endWeek; week++) {
           calendar.push(
-            <div className="row" key={week}>
+            <div className="weekBox" key={week}>
               {Array(7)
                 .fill(0)
                 .map((n, i) => {
@@ -82,7 +100,7 @@ const Calendar = () => {
     
                   return (
                     <div className={`box ${isSelected} ${isGrayed}`} key={i} onClick={() => handleDayClick(current)}>
-                      <span className="text">{current.format('D')}</span>
+                      <a><span className="text">{current.format('D')}</span></a>
                     </div>
                   );
                 })}
@@ -95,16 +113,24 @@ const Calendar = () => {
     return (
         <Container>
             <Header>
-                <h2>{data.format('YYYY')}</h2>
-                <h3>{data.format('MMMM')}</h3>
+                <h2>{date.format('YYYY')}</h2>
+                <WeekHandeler>
+                  <button onClick={() => jumpToMonth(0)}>&lt;</button> 
+                  <h3>{date.format('MMMM')}</h3>
+                  <button onClick={() => jumpToMonth(1)}> &gt;</button> 
+                </WeekHandeler>
             </Header>
             <Top>
                 {['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'].map((el) => (
-                    <div className="box" key={el}>
-                        <span className="text">{el}</span>
+                    <div>
+                        <span>{el}</span>
                     </div>
                 ))}
             </Top>
+            <Body>
+              {generate()}
+            </Body>
+            
         
             
         </Container>
