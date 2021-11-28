@@ -17,9 +17,16 @@ body {
 
 .weekBox {
   display: flex;
-  
   justify-content: space-around;
   text-align: center;
+}
+
+.weekBox > div.box:nth-child(1) {
+  color: red;
+}
+
+.weekBox > div.box:nth-child(7) {
+  color: blue;
 }
 
 .grayed {

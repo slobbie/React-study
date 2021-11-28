@@ -67,7 +67,7 @@ const Calendar = () => {
         const today = date;
 
         // startOf('month') : 이번 달의 첫번 째 날로 설정 set to the first of this month, 12:00 am
-        // week() : Week of Year. 이번 년도의 몇번째 주인가? => 3월 8일이면 10이겠죠?
+        // week() : Week of Year. 이번 년도의 몇번째 주인가? 
         const startWeek = today.clone().startOf('month').week();
     
         // endOf('month').week() : 이번 달의 마지막 날로 설정 한 후 그것이 이번 년도의 몇번째 주인지 체크
@@ -78,7 +78,7 @@ const Calendar = () => {
         let calendar = [];
     
         // 시작 주부터 마지막 주까지 +1 씩 증가시킴
-        // 이제 주마다 일을 표기해야 하므로 len이 7인 arr를 생성 후 index를 기반으로 day를 표기하자
+        // 이제 주마다 일을 표기해야 하므로 len이 7인 arr를 생성 후 index를 기반으로 day를 표기
         for (let week = startWeek; week <= endWeek; week++) {
           calendar.push(
             <div className="weekBox" key={week}>
