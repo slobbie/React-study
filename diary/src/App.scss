@@ -1,6 +1,18 @@
+@import '../src/style/paltte';
+
 body {
   margin: 0 auto;
 }
+
+a{
+  color: $color-black;
+  text-decoration: none;
+}
+
+ul{
+  list-style: none;
+}
+
 
 .box {
   display: inline-block;
@@ -22,20 +34,20 @@ body {
 }
 
 .weekBox > div.box:nth-child(1) {
-  color: red;
+  color: $color-red;
 }
 
 .weekBox > div.box:nth-child(7) {
-  color: blue;
+  color: $color-blue;
 }
 
 .grayed {
-  color: gray;
+  color: $color-greay;
   opacity: 0.5;
 }
 
 .selected {
   border-radius: 25px;
-  color: #fff;
-  background-color: #9CCBF0 ;
+  color: $color-white;
+  background-color: $color-selected ;
 }
