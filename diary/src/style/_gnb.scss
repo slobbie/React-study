@@ -1,0 +1,14 @@
+@import "./paltte";
+
+.Logo {
+    margin: 0;
+   padding: 20px 50px;
+   display: inline-block;
+}
+
+.Nav{
+    background-color: $color-white;
+    height: 70px;
+     box-shadow: 3px 5px 13px rgb(163 177 198 / 43%), -8px -9px 5px rgb(255 255 255 / 19%);
+     z-index: 1;
+}

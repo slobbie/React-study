@@ -1,0 +1,41 @@
+@import './paltte';
+
+.Container {
+    margin: 0 auto;
+    top: 40px;
+    width: 60%;
+    height: 600px;
+    position: relative;
+    background-color: $color-white;
+    box-shadow: 3px 5px 13px rgb(163 177 198 / 43%), -8px -9px 5px rgb(255 255 255 / 19%);
+    border-radius: 15px;
+}
+
+
+.Header {
+    width: 300px;
+    text-align: center;
+    margin: 0 auto;
+    position: relative;
+    h2{
+        padding-top: 30px;
+        margin: 0;
+    }
+    h3{
+        margin:0;
+        font-size: 25px;
+        padding-top: 5px;
+    }
+}
+
+.WeekHandeler {
+    display: flex;
+    justify-content: space-around;
+    button {
+      color: wheat;
+      border: none;
+      border-radius: 30px;
+      background-color: $color-tomato;
+      
+    }
+}

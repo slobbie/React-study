@@ -4,45 +4,45 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 
 
-let Container = styled.div`
-  margin: 0 auto;
-  top: 40px;
-  width: 60%;
-  height: 600px;
-  position: relative;
-  background-color: #fff;
-  box-shadow: 3px 5px 13px rgb(163 177 198 / 43%), -8px -9px 5px rgb(255 255 255 / 19%);
-  border-radius: 15px;
+// let Container = styled.div`
+//   margin: 0 auto;
+//   top: 40px;
+//   width: 60%;
+//   height: 600px;
+//   position: relative;
+//   background-color: #fff;
+//   box-shadow: 3px 5px 13px rgb(163 177 198 / 43%), -8px -9px 5px rgb(255 255 255 / 19%);
+//   border-radius: 15px;
 
-`
+// `
 
-let Header = styled.div`
-    width: 300px;
-    text-align: center;
-    margin: 0 auto;
-    position: relative;
-    h2{
-        padding-top: 30px;
-        margin: 0;
-    }
-    h3{
-        margin:0;
-        font-size: 25px;
-        padding-top: 5px;
-    }
+// let Header = styled.div`
+//     width: 300px;
+//     text-align: center;
+//     margin: 0 auto;
+//     position: relative;
+//     h2{
+//         padding-top: 30px;
+//         margin: 0;
+//     }
+//     h3{
+//         margin:0;
+//         font-size: 25px;
+//         padding-top: 5px;
+//     }
  
-`
-let WeekHandeler = styled.div` 
-     display: flex;
-     justify-content: space-around;
-     button {
-       color: wheat;
-       border: none;
-       border-radius: 30px;
-       background-color: tomato;
+// `
+// let WeekHandeler = styled.div` 
+//      display: flex;
+//      justify-content: space-around;
+//      button {
+//        color: wheat;
+//        border: none;
+//        border-radius: 30px;
+//        background-color: tomato;
        
-     }
-`
+//      }
+// `
 
 let Top = styled.div`
  padding-top: 50px;
@@ -111,15 +111,15 @@ const Calendar = () => {
       }
 
     return (
-        <Container>
-            <Header>
+        <section className="Container">
+            <div className="Header">
                 <h2>{date.format('YYYY')}</h2>
-                <WeekHandeler>
+                <div className="WeekHandeler">
                   <button onClick={() => jumpToMonth(0)}>&lt;</button> 
                   <h3>{date.format('MMMM')}</h3>
                   <button onClick={() => jumpToMonth(1)}> &gt;</button> 
-                </WeekHandeler>
-            </Header>
+                </div>
+            </div>
             <Top>
                 {['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'].map((el) => (
                     <div>
@@ -133,7 +133,7 @@ const Calendar = () => {
             
         
             
-        </Container>
+        </section>
     );
 }
 
