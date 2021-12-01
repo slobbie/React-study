@@ -4,55 +4,15 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 
 
-// let Container = styled.div`
-//   margin: 0 auto;
-//   top: 40px;
-//   width: 60%;
-//   height: 600px;
-//   position: relative;
-//   background-color: #fff;
-//   box-shadow: 3px 5px 13px rgb(163 177 198 / 43%), -8px -9px 5px rgb(255 255 255 / 19%);
-//   border-radius: 15px;
-
+// let Top = styled.div`
+//  padding-top: 50px;
+//  display: flex;
+//  justify-content: space-around;
 // `
 
-// let Header = styled.div`
-//     width: 300px;
-//     text-align: center;
-//     margin: 0 auto;
-//     position: relative;
-//     h2{
-//         padding-top: 30px;
-//         margin: 0;
-//     }
-//     h3{
-//         margin:0;
-//         font-size: 25px;
-//         padding-top: 5px;
-//     }
- 
+// let Body = styled.div` 
+//   margin-top: 20px;  
 // `
-// let WeekHandeler = styled.div` 
-//      display: flex;
-//      justify-content: space-around;
-//      button {
-//        color: wheat;
-//        border: none;
-//        border-radius: 30px;
-//        background-color: tomato;
-       
-//      }
-// `
-
-let Top = styled.div`
- padding-top: 50px;
- display: flex;
- justify-content: space-around;
-`
-
-let Body = styled.div` 
-  margin-top: 20px;  
-`
 
 const Calendar = () => {
     const [date, setdate] = useState<moment.Moment>(() => moment());
@@ -120,16 +80,16 @@ const Calendar = () => {
                   <button onClick={() => jumpToMonth(1)}> &gt;</button> 
                 </div>
             </div>
-            <Top>
+            <div className="Top">
                 {['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'].map((el) => (
                     <div>
                         <span>{el}</span>
                     </div>
                 ))}
-            </Top>
-            <Body>
+            </div>
+            <div className="Body">
               {generate()}
-            </Body>
+            </div>
             
         
             
