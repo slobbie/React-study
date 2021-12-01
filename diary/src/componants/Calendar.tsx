@@ -2,6 +2,8 @@ import styled from "styled-components";
 import moment, { Moment as MomentTypes } from 'moment';
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import Modal from "./modal";
+
 
 
 // let Top = styled.div`
@@ -16,6 +18,10 @@ import { Link } from "react-router-dom";
 
 const Calendar = () => {
     const [date, setdate] = useState<moment.Moment>(() => moment());
+    const [ modalOpen, setModalOpen ] = useState<boolean>(false);
+    const modalClose = () => {
+        setModalOpen(!modalOpen)
+    }
 
 
     const handleDayClick = (current: moment.Moment) => setdate(current);
@@ -60,7 +66,8 @@ const Calendar = () => {
     
                   return (
                     <div className={`box ${isSelected} ${isGrayed}`} key={i} onClick={() => handleDayClick(current)}>
-                      <a><span className="text">{current.format('D')}</span></a>
+                      <a onClick={modalClose}><span className="text">{current.format('D')}</span></a>
+                      { modalOpen && <Modal modalClose={modalClose}></Modal>}
                     </div>
                   );
                 })}
@@ -78,6 +85,7 @@ const Calendar = () => {
                   <button onClick={() => jumpToMonth(0)}>&lt;</button> 
                   <h3>{date.format('MMMM')}</h3>
                   <button onClick={() => jumpToMonth(1)}> &gt;</button> 
+              
                 </div>
             </div>
             <div className="Top">
@@ -90,7 +98,7 @@ const Calendar = () => {
             <div className="Body">
               {generate()}
             </div>
-            
+           
         
             
         </section>
