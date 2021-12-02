@@ -6,16 +6,6 @@ import Modal from "./modal";
 
 
 
-// let Top = styled.div`
-//  padding-top: 50px;
-//  display: flex;
-//  justify-content: space-around;
-// `
-
-// let Body = styled.div` 
-//   margin-top: 20px;  
-// `
-
 const Calendar = () => {
     const [date, setdate] = useState<moment.Moment>(() => moment());
     const [ modalOpen, setModalOpen ] = useState<boolean>(false);
