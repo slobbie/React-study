@@ -1,7 +1,7 @@
 .ModalContainer {
     width: 100%;
-    height: 100vh;
-    background-color: rgba(0,0,0,0.4);
+    height: 110vh;
+    background-color: tomato;
     z-index: 10;
     position: fixed;
     top: 0;
@@ -9,14 +9,47 @@
     .modal {
         width: 60%;
         height: 80vh;
-        background-color: #fff;
-        // Modal 창 브라우저 가운데로 조정
+        background-color: $color-white;
         position: absolute;
         left: 50%;
         top:50%;
         transform: translate(-50%, -50%);
         z-index:100;
         border-radius: 15px;
-        // box-shadow: 3px 5px 13px rgb(163 177 198 / 43%), -8px -9px 5px rgb(255 255 255 / 19%);
+        
+    }
+}
+
+.cloes_btn {
+    position: relative;
+    display: block;
+    border: none;
+    background-color: $color-white;
+    color: $color-black;
+    margin: 20px;
+    
+}
+
+.input_title{
+    width: 50%;
+}
+
+.txet_box{
+    position: relative;
+    top: 30%;
+    textarea{
+        resize: none;
+        width: 80%;
+        height: 35vh;
+        border-radius: 15px;
+        padding: 20px;
+        background-color: $color-note;
+        font-size: 15px;
+        line-height: 30px;
+        border: none;
+        text-align: center;
+        box-shadow: 1px 2px 9px rgb(163 177 198 );
+        outline: none;
+        
     }
 }
