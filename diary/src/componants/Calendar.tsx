@@ -53,6 +53,7 @@ const Calendar = () => {
     
                   // 만약, 이번 달이 아닌 다른 달의 날짜라면 회색으로 표시하자
                   let isGrayed = current.format('MM') !== today.format('MM') ? 'grayed' : '';
+
     
                   return (
                     <div className={`box ${isSelected} ${isGrayed}`} key={i} onClick={() => handleDayClick(current)}>
