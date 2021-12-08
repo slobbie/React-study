@@ -10,30 +10,30 @@ export default function CreateWord() {
  
   function onSubmit(e){
     e.preventDefault();
-    
- if(!isLoading) {
-    setIsLoading(true);
-    fetch(`http://localhost:3001/words/`,{
-            method : 'POST',
-            headers : {
-                'Content-Type' : 'application/json',
-            },
-            body : JSON.stringify ({
-                day :dayRef.current.value,
-                eng :engRef.current.value,
-                kor :korRef.current.value,
-                isDone : false
-            }),
-        })
-        .then(res => {
-            if(res.ok) {
-                alert("생성이 완료 되었습니다.")
-                history.push(`/day/${dayRef.current.value}`)
-                setIsLoading(false);
-            }
-        });
-    } 
- }
+      
+    if(!isLoading) {
+        setIsLoading(true);
+        fetch(`http://localhost:3001/words/`,{
+                method : 'POST',
+                headers : {
+                    'Content-Type' : 'application/json',
+                },
+                body : JSON.stringify ({
+                    day :dayRef.current.value,
+                    eng :engRef.current.value,
+                    kor :korRef.current.value,
+                    isDone : false
+                }),
+            })
+            .then(res => {
+                if(res.ok) {
+                    alert("생성이 완료 되었습니다.")
+                    history.push(`/day/${dayRef.current.value}`)
+                    setIsLoading(false);
+                }
+            });
+        } 
+  } 
     
 
   const engRef = useRef(null);
