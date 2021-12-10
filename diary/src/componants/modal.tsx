@@ -49,12 +49,11 @@ const Modal = ({modalClose}: any) => {
                         <div className="txet_title">
                         </div>
                         <div className="txet_box"  >
-                            {days.map(id => (
-                                <textarea maxLength={500} value={id.body} ref={dayNote}  >
-                                            {id.body}
+                            {days.map((notes) => (
+                                <textarea maxLength={500} value={notes.id} ref={dayNote}  >
+                                            {notes.body}
                                 </textarea>
                         ))}
-                           
                         </div>
                         <button className="modal_btn">완료</button>
                 </div>
