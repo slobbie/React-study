@@ -1,8 +1,10 @@
-import '../styles/globals.css'
-import type { AppProps } from 'next/app'
+import type { AppProps } from 'next/app';
+import '../styles/init.scss';
+import useWidth from '../hooks/useWidth';
 
-function MyApp({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />
+function MyApp(Props: AppProps) {
+  const { mediaQuery } = useWidth();
+  return <Props.Component {...Props.pageProps} />;
 }
 
-export default MyApp
+export default MyApp;
