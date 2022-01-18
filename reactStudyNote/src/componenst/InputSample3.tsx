@@ -15,7 +15,7 @@ const InputSample3 = () => {
     nickname: '',
   });
 
-  const nameInput: any = useRef(null);
+  const nameRef: any = useRef<HTMLInputElement>(null);
 
   const { name, nickname } = inputs; // 할당을 통해 값 추출
 
@@ -32,7 +32,7 @@ const InputSample3 = () => {
       name: '',
       nickname: '',
     });
-    nameInput.current.focus();
+    nameRef.current.focus();
   };
 
   return (
@@ -42,7 +42,7 @@ const InputSample3 = () => {
         placeholder='이름'
         onChange={onChange}
         value={name}
-        ref={nameInput}
+        ref={nameRef}
       />
       <input
         name='nickname'
