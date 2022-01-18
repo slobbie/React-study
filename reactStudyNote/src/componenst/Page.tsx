@@ -1,6 +1,7 @@
 import Hello from 'componenst/Hello';
 import Count from './count';
 import InputSample from './InputSample';
+import InputSample2 from './InputSample2';
 import MarginTop from './MarginTop';
 
 export default function Page() {
@@ -12,6 +13,8 @@ export default function Page() {
         <Count />
         <MarginTop margin={50} />
         <InputSample />
+        <MarginTop margin={50} />
+        <InputSample2 />
       </div>
     </div>
   );
