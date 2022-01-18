@@ -3,6 +3,7 @@ import Count from './count';
 import InputSample from './InputSample';
 import InputSample2 from './InputSample2';
 import MarginTop from './MarginTop';
+import UserList from './UserList';
 
 export default function Page() {
   return (
@@ -15,6 +16,8 @@ export default function Page() {
         <InputSample />
         <MarginTop margin={50} />
         <InputSample2 />
+        <MarginTop margin={50} />
+        <UserList />
       </div>
     </div>
   );
