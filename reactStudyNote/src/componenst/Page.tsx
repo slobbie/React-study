@@ -1,5 +1,7 @@
 import Hello from 'componenst/Hello';
 import Count from './count';
+import InputSample from './InputSample';
+import MarginTop from './MarginTop';
 
 export default function Page() {
   return (
@@ -8,6 +10,8 @@ export default function Page() {
         <Hello name='Sloobie' color='pink' isSpecial='true' />
         <Hello />
         <Count />
+        <MarginTop margin={50} />
+        <InputSample />
       </div>
     </div>
   );
