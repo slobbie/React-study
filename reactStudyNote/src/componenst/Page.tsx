@@ -1,4 +1,5 @@
 import Hello from 'componenst/Hello';
+import Count from './count';
 
 export default function Page() {
   return (
@@ -6,6 +7,7 @@ export default function Page() {
       <div className='pageBox'>
         <Hello name='Sloobie' color='pink' isSpecial='true' />
         <Hello />
+        <Count />
       </div>
     </div>
   );
