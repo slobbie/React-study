@@ -22,6 +22,6 @@ const UserList2 = ({ users, onRemove, onToggle }: any) => {
   );
 };
 
-export default UserList2;
+export default React.memo(UserList2);
 
 // 수정할 때 불변성을 지켜준다 => 배열의 데이터를 직접 건드리지 않는다는뜻

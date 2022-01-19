@@ -48,13 +48,21 @@ const Page = () => {
 
   const { username, email } = inputs;
 
-  const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const onChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
-    setInputs({
+    setInputs((inputs) => ({
       ...inputs,
       [name]: value,
-    });
-  };
+    }));
+  }, []);
+
+  // const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  //   const { name, value } = e.target;
+  //   setInputs({
+  //     ...inputs,
+  //     [name]: value,
+  //   });
+  // };
   const nextId = useRef(4);
 
   const onCreate = useCallback(() => {
@@ -64,23 +72,20 @@ const Page = () => {
       email,
       active: false,
     }; // user 는 id , username , email 를 가진다.
-    setUsers(users.concat(user)); // users.concat => users 의 기존 배열은 수정 x 새로운 배열을 추가한다. 무엇을? => user
+    setUsers((users) => users.concat(user)); // users.concat => users 의 기존 배열은 수정 x 새로운 배열을 추가한다. 무엇을? => user
 
     setInputs({
       username: '',
       email: '',
     }); /// 추가후 setInputs 은 초기화
     nextId.current += 1;
-  }, [users, username, email]);
+  }, [username, email]);
 
-  const onRemove = useCallback(
-    (id) => {
-      // user.id 가 파라미터로 일치하지 않는 원소만 추출해서 새로운 배열을 만듬
-      // = user.id 가 id 인 것을 제거함
-      setUsers(users.filter((user) => user.id !== id));
-    },
-    [users]
-  );
+  const onRemove = useCallback((id) => {
+    // user.id 가 파라미터로 일치하지 않는 원소만 추출해서 새로운 배열을 만듬
+    // = user.id 가 id 인 것을 제거함
+    setUsers((users) => users.filter((user) => user.id !== id));
+  }, []);
 
   // const onRemove = id => {
   //   // user.id 가 파라미터로 일치하지 않는 원소만 추출해서 새로운 배열을 만듬
@@ -97,17 +102,14 @@ const Page = () => {
   //   );
   // };
 
-  const onToggle = useCallback(
-    (id) => {
-      setUsers(
-        users.map(
-          (user) => (user.id === id ? { ...user, active: !user.active } : user) // users 를 map 을 돌려서 해당 id 가 같을시에  user.active 는 현재의 !
-          // : user => 아니면 현재 user 의 상태값을 유지한다는 뜻
-        )
-      );
-    },
-    [users]
-  );
+  const onToggle = useCallback((id) => {
+    setUsers((users) =>
+      users.map(
+        (user) => (user.id === id ? { ...user, active: !user.active } : user) // users 를 map 을 돌려서 해당 id 가 같을시에  user.active 는 현재의 !
+        // : user => 아니면 현재 user 의 상태값을 유지한다는 뜻
+      )
+    );
+  }, []);
 
   const count = useMemo(() => countActiveUsers(users), [users]);
   //useMemo 의 첫번째 파라미터에는 어떻게 연산할지 정의하는 함수를 넣어주면 되고

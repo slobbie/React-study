@@ -1,3 +1,5 @@
+import React from 'react';
+
 const CreateUser = ({ username, email, onChange, onCreate }: any) => {
   return (
     <div>
@@ -17,7 +19,7 @@ const CreateUser = ({ username, email, onChange, onCreate }: any) => {
     </div>
   );
 };
-export default CreateUser;
+export default React.memo(CreateUser);
 
 // useRef의 또 다른 역할
 

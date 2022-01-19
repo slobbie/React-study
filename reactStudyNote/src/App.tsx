@@ -1,4 +1,4 @@
-import Page from 'componenst/Page';
+import Page2 from 'componenst/Page2';
 import React from 'react';
 import './App.css';
 
@@ -9,7 +9,7 @@ function App() {
     <div className='App'>
       <>
         <Router>
-          <Page />
+          <Page2 />
         </Router>
       </>
     </div>
