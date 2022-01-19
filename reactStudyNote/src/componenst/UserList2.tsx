@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { UserDispatch } from './Page3';
 
-const UserList2 = ({ users, onRemove, onToggle }: any) => {
+const UserList2 = ({ users }: any) => {
+  const dispatch = useContext(UserDispatch);
   return (
     <div>
       {users.map((user: any) => (
@@ -10,12 +12,18 @@ const UserList2 = ({ users, onRemove, onToggle }: any) => {
               cursor: 'pointer',
               color: user.active ? 'green' : 'black',
             }}
-            onClick={() => onToggle(user.id)}
+            onClick={() => {
+              dispatch({ type: 'TOGGLE_USER', id: user.id });
+            }}
           >
             {user.username}
           </b>
           <span>({user.email})</span>
-          <button onClick={() => onRemove(user.id)}>삭제</button>
+          <button
+            onClick={() => dispatch({ type: 'REMOVE_USER', id: user.id })}
+          >
+            삭제
+          </button>
         </div>
       ))}
     </div>

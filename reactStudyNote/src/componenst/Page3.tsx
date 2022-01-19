@@ -35,14 +35,6 @@ const initialState = {
 
 const reducer = (state: any, action: any) => {
   switch (action.type) {
-    case 'CHANGE_INPUT':
-      return {
-        ...state,
-        inputs: {
-          ...state.inputs,
-          [action.name]: action.value,
-        },
-      };
     case 'CREATE_USER':
       return {
         users: state.users.concat(action.user),
@@ -67,7 +59,7 @@ const reducer = (state: any, action: any) => {
 // UserDispatch 라는 이름으로 내보내줌.
 export const UserDispatch = React.createContext<any>(null);
 
-const Page2 = () => {
+const Page3 = () => {
   const [{ username, email }, onChange, reset] = useInputs({
     username: '',
     email: '',
@@ -90,20 +82,6 @@ const Page2 = () => {
     nextId.current += 1;
   }, [username, email, reset]);
 
-  const onToggle = useCallback((id) => {
-    dispatch({
-      type: 'TOGGLE_USER',
-      id,
-    });
-  }, []);
-
-  const onRemove = useCallback((id) => {
-    dispatch({
-      type: 'REMOVE_USER',
-      id,
-    });
-  }, []);
-
   const count = useMemo(() => countActiveUsers(users), [users]);
   return (
     <UserDispatch.Provider value={dispatch}>
@@ -116,7 +94,8 @@ const Page2 = () => {
             onChange={onChange}
             onCreate={onCreate}
           />
-          <UserList2 users={users} onToggle={onToggle} onRemove={onRemove} />
+          <UserList2 users={users} />
+          {/* context 를 사용해 전역으로 값을 보내주었기 때문에 컴포넌트에 props 를 보낼 이유가 없음 */}
           <div> 할성사용자 수 : {count}</div>
         </div>
       </div>
@@ -124,4 +103,4 @@ const Page2 = () => {
   );
 };
 
-export default Page2;
+export default Page3;
