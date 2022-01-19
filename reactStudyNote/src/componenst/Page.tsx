@@ -1,6 +1,5 @@
 import Hello from 'componenst/Hello';
-import { useRef, useState } from 'react';
-import { idText } from 'typescript';
+import { useRef, useState, useMemo } from 'react';
 import Count from './count';
 import CreateUser from './CreateUser';
 import InputSample from './InputSample';
@@ -14,6 +13,11 @@ interface usersDataModel {
   email: string;
   active: Boolean;
 }
+
+const countActiveUsers = (users: any) => {
+  console.log('활성 사용자 수를 세는중...');
+  return users.filter((user: any) => user.active).length; //active 값이 true 인 사용자의 수를 체크
+};
 
 const Page = () => {
   const [users, setUsers] = useState<usersDataModel[]>([
@@ -83,6 +87,9 @@ const Page = () => {
       )
     );
   };
+
+  const count = useMemo(() => countActiveUsers(users), [users]);
+
   return (
     <div className='page'>
       <div className='pageBox'>
@@ -101,6 +108,7 @@ const Page = () => {
           onCreate={onCreate}
         />
         <UserList2 users={users} onRemove={onRemove} onToggle={onToggle} />
+        <div> 할성사용자 수 : {count}</div>
       </div>
     </div>
   );
