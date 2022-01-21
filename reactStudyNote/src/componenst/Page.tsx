@@ -127,12 +127,12 @@ const Page = () => {
         <MarginTop margin={50} />
         <InputSample2 />
         <MarginTop margin={50} />
-        <CreateUser
+        {/* <CreateUser
           username={username}
           email={email}
           onChange={onChange}
           onCreate={onCreate}
-        />
+        /> */}
         <UserList2 users={users} onRemove={onRemove} onToggle={onToggle} />
         <div> 할성사용자 수 : {count}</div>
       </div>

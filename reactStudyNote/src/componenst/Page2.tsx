@@ -110,12 +110,12 @@ const Page2 = () => {
       <div className='page'>
         <div className='pageBox'>
           <MarginTop margin={50} />
-          <CreateUser
+          {/* <CreateUser
             username={username}
             email={email}
             onChange={onChange}
             onCreate={onCreate}
-          />
+          /> */}
           <UserList2 users={users} onToggle={onToggle} onRemove={onRemove} />
           <div> 할성사용자 수 : {count}</div>
         </div>
