@@ -1,6 +1,6 @@
 //API 를 요청 할 때 파라미터가 필요한 경우
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import axios from 'axios';
 import useAsync from './useAsync';
 

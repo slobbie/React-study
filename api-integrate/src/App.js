@@ -1,11 +1,13 @@
+import React from 'react';
 import './App.css';
-import Users3 from './components/users3';
+import Users4 from './components/users4';
+import { UsersProvider } from './components/usersContext';
 
 function App() {
   return (
-    <div className='App'>
-      <Users3 />
-    </div>
+    <UsersProvider>
+      <Users4 />
+    </UsersProvider>
   );
 }
 
