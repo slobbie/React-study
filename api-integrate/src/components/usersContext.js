@@ -4,7 +4,7 @@ import {
   createAsyncHandler,
   initialAsyncState,
 } from './asyncActionUtils';
-import * as api from './api'; // api 파일에서 내보낸 모든 함수들을 불러옴
+import * as api from '../API/api'; // api 파일에서 내보낸 모든 함수들을 불러옴
 
 // UsersContext 에서 사용 할 기본 상태
 const initialState = {

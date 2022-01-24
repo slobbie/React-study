@@ -1,10 +1,10 @@
 import axios from 'axios';
 
-const getUsers = async () => {
+export const getUsers = async () => {
   const response = await axios.get(
     'https://jsonplaceholder.typicode.com/users'
   );
-  return response.data; // users 데이터를 받는 코드
+  return response.data;
 };
 
 export const getUser = async (id) => {
