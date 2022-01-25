@@ -1,17 +1,9 @@
-import React from "react";
-import CounterContainers from "./Containers/CounterContainers"; 
-import CounterContainer2 from "./Containers/CounterContainer2";
-
+import React from 'react';
 
 import './App.css';
 
 function App() {
-  return (
-    <div> 
-      <CounterContainers /> 
-      <CounterContainer2 /> 
-    </div>
-  );
+  return <div></div>;
 }
 
 export default App;
